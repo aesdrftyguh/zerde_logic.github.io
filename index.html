@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="kk">
 
 <head>
@@ -239,8 +239,51 @@
     <script src="VisualMemory.js"></script>
     <script src="PatternPuzzle.js"></script>
     <script src="VisualMath.js"></script>
+    <script src="BasketDrag.js"></script>
+    <script src="TrainNumbers.js"></script>
+    <script src="NestEggs.js"></script>
+    <script src="SafeCode.js"></script>
+    <script src="LiveScales.js"></script>
+    <script src="ChocoDivide.js"></script>
     <script src="TaskRunner.js"></script>
     <script src="app.js"></script>
+    <style>
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5) rotate(-10deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+    </style>
 </body>
 
 </html>
