@@ -40,7 +40,8 @@ class TaskRunner {
             'maze': MazeTemplate,
             'counting': CountingTemplate,
             'visualmemory': VisualMemoryTemplate,
-            'patternpuzzle': PatternPuzzleTemplate
+            'patternpuzzle': PatternPuzzleTemplate,
+            'visualmath': VisualMathTemplate
         };
 
         this.nextLevelBtn.style.display = 'none'; // Hide next button
