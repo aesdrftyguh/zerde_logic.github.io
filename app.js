@@ -1,4 +1,4 @@
-﻿// Imports removed for file:// compatibility
+// Imports removed for file:// compatibility
 
 class App {
     constructor() {
