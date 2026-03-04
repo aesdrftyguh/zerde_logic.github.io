@@ -1,4 +1,4 @@
-﻿class VisualLogicTemplate {
+class VisualLogicTemplate {
     constructor(container, content, onSuccess, onFail) {
         this.container = container;
         this.content = content;
@@ -63,14 +63,17 @@
         label.style.textAlign = 'center';
         label.textContent = '«?» орнына нені қоясың?';
 
-        // ── Options ───────────────────────────────────────────────────
+        // ── Options (shuffled) ────────────────────────────────────────
         const optRow = document.createElement('div');
         Object.assign(optRow.style, {
             display: 'flex', gap: 'clamp(10px,3vw,20px)',
             justifyContent: 'center', flexWrap: 'wrap', width: '100%'
         });
 
-        options.forEach(opt => {
+        // Shuffle options so correct answer isn't always first
+        const shuffledOpts = [...options].sort(() => Math.random() - 0.5);
+
+        shuffledOpts.forEach(opt => {
             const display = opt.content || opt.emoji || String(opt);
             const isCorrect = opt.correct === true;
 
@@ -93,19 +96,31 @@
                 this.answered = true;
                 if (isCorrect) {
                     btn.style.background = '#d1fae5'; btn.style.borderColor = '#10b981';
-                    // Fill in the ? cell
-                    const qCell = gridEl.querySelector('div:last-child') ||
-                        Array.from(gridEl.children).find(c => c.textContent === '?');
+                    // FIXED: Find the actual '?' cell, not div:last-child
+                    const qCell = Array.from(gridEl.children)
+                        .find(c => c.textContent.trim() === '?');
                     if (qCell) {
                         qCell.textContent = display;
-                        qCell.style.background = '#d1fae5'; qCell.style.borderColor = '#10b981';
+                        qCell.style.background = '#d1fae5';
                         qCell.style.border = '2.5px solid #10b981';
                         qCell.style.color = '#065f46';
+                        // Bounce animation
+                        qCell.style.transform = 'scale(1.18)';
+                        setTimeout(() => qCell.style.transform = 'scale(1)', 250);
                     }
                     setTimeout(() => this.onSuccess(btn), 500);
                 } else {
                     btn.style.background = '#fee2e2'; btn.style.borderColor = '#ef4444';
-                    setTimeout(() => this.onFail(), 600);
+                    // Shake wrong button
+                    const shakes = ['6px', '-5px', '4px', '-3px', '0'];
+                    shakes.forEach((x, i) => setTimeout(() =>
+                        btn.style.transform = `translateX(${x})`, i * 55));
+                    setTimeout(() => {
+                        this.answered = false;
+                        btn.style.background = 'white';
+                        btn.style.borderColor = '#e5e7eb';
+                    }, 500);
+                    this.onFail();
                 }
             });
             optRow.appendChild(btn);
