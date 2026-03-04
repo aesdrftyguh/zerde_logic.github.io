@@ -1,4 +1,4 @@
-﻿// Imports assumed global for file:// compatibility
+// Imports assumed global for file:// compatibility
 
 class TaskRunner {
     constructor() {
@@ -65,9 +65,17 @@ class TaskRunner {
 
     onSuccess(anchorEl) {
         // Trigger Victory
-        SFX.playWin(); // Winner sound
+        SFX.playWin();
 
-        // Get coordinates for burst if element provided, else use screen center
+        // Kazakh success speech
+        const successPhrases = [
+            'Дұрыс! Керемет!',
+            'Жарайсың! Өте жақсы!',
+            'Дұрыс жауап! Сен батырсың!',
+            'Тамаша! Жалғастыр!'
+        ];
+        setTimeout(() => SFX.speak(successPhrases[Math.floor(Math.random() * successPhrases.length)]), 300);
+
         let burstX = window.innerWidth / 2;
         let burstY = window.innerHeight / 2;
 
@@ -77,12 +85,11 @@ class TaskRunner {
             burstY = rect.top + rect.height / 2;
         }
 
-        Confetti.burst(burstX, burstY); // Localized burst
-        Confetti.launch(); // Global falling confetti
+        Confetti.burst(burstX, burstY);
+        Confetti.launch();
 
         this.victoryOverlay.classList.remove('hidden');
 
-        // Automatic progression after 2 seconds
         setTimeout(() => {
             this.victoryOverlay.classList.add('hidden');
             document.dispatchEvent(new CustomEvent('task-complete', {
@@ -92,12 +99,19 @@ class TaskRunner {
     }
 
     onFail() {
-        SFX.playFail(); // Fail noise
-        // Trigger Shake on container
+        SFX.playFail();
         this.gameStage.classList.add('shake-anim');
         setTimeout(() => this.gameStage.classList.remove('shake-anim'), 500);
 
-        // Notify app for mascot reaction
+        // Kazakh fail speech
+        const failPhrases = [
+            'Қайтадан байқап көр!',
+            'Мұқият бол!',
+            'Дұрыс емес, тағы бір рет!',
+            'Сенің қолыңнан келеді!'
+        ];
+        setTimeout(() => SFX.speak(failPhrases[Math.floor(Math.random() * failPhrases.length)]), 200);
+
         document.dispatchEvent(new Event('task-fail'));
     }
 
