@@ -1,4 +1,4 @@
-// Imports assumed global for file:// compatibility
+﻿// Imports assumed global for file:// compatibility
 
 class TaskRunner {
     constructor() {
@@ -41,7 +41,13 @@ class TaskRunner {
             'counting': CountingTemplate,
             'visualmemory': VisualMemoryTemplate,
             'patternpuzzle': PatternPuzzleTemplate,
-            'visualmath': VisualMathTemplate
+            'visualmath': VisualMathTemplate,
+            'basketdrag': BasketDragTemplate,
+            'trainnumbers': TrainNumbersTemplate,
+            'nesteggs': NestEggsTemplate,
+            'safecode': SafeCodeTemplate,
+            'livescales': LiveScalesTemplate,
+            'chocodivide': ChocoDivideTemplate
         };
 
         this.nextLevelBtn.style.display = 'none'; // Hide next button

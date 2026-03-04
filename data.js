@@ -1,11 +1,11 @@
-const SECTIONS = [
+﻿const SECTIONS = [
     {
         id: 'logic',
         title: '1-БӨЛІМ — ЛОГИКА ЖӘНЕ ОЙЛАУ',
         icon: '🧠',
         color: '#8b5cf6', // Violet
         categories: [
-            { id: 'logic_patterns', title: 'Заңдылықтар', icon: '🔗', stars: 0, total: 3 },
+            { id: 'logic_patterns', title: 'Жемістермен есеп', icon: '🍎', stars: 0, total: 3 },
             { id: 'logic_odd_one', title: 'Артық затты тап', icon: '❌', stars: 0, total: 3 },
             { id: 'logic_prediction', title: 'Жалғасын тап', icon: '🔮', stars: 0, total: 3 },
             { id: 'logic_cause_effect', title: 'Себеп-салдар', icon: '⚡', stars: 0, total: 3 },
@@ -54,54 +54,37 @@ const SECTIONS = [
 
 const TASKS = {
     'logic_patterns': [
-        // 1. Hot vs Cold - Classification
         {
             id: 'pat_01',
-            template: 'classification',
-            instruction: 'Топтастыр: Ыстық және Суық заттар',
+            template: 'visualmath',
+            instruction: '🍎 Алмаларды қос!',
             content: {
-                categories: [
-                    { id: 'hot', label: 'ЫСТЫҚ 🔥', color: '#ef4444' },
-                    { id: 'cold', label: 'СУЫҚ ❄️', color: '#3b82f6' }
-                ],
-                items: [
-                    { id: 'i1', content: '☀️', category: 'hot' },
-                    { id: 'i2', content: '🧊', category: 'cold' },
-                    { id: 'i3', content: '🔥', category: 'hot' },
-                    { id: 'i4', content: '⛄', category: 'cold' },
-                    { id: 'i5', content: '🌶️', category: 'hot' },
-                    { id: 'i6', content: '🍦', category: 'cold' }
-                ]
+                emoji: '🍎',
+                operand1: 3, operator: '+', operand2: 2,
+                answer: 5, options: [4, 5, 6],
+                story: 'Себетте 3 алма бар еді. Тағы 2 алма қосты. Барлығы нешеу?'
             }
         },
-        // 2. Growing Sequence - Next in Sequence
         {
             id: 'pat_02',
-            template: 'nextinsequence',
-            instruction: 'Өсу реті: Жұмыртқа → Балапан → ?',
+            template: 'visualmath',
+            instruction: '🍌 Банандарды азайт!',
             content: {
-                sequence: ['🥚', '🐣', '🐥'],
-                options: [
-                    { content: '🐓', correct: true },
-                    { content: '🦴', correct: false },
-                    { content: '🍳', correct: false }
-                ]
+                emoji: '🍌',
+                operand1: 6, operator: '-', operand2: 2,
+                answer: 4, options: [3, 4, 5],
+                story: 'Маймылда 6 банан болды. 2-еуін жеді. Нешеуі қалды?'
             }
         },
-        // 3. Find Different Shape
         {
             id: 'pat_03',
-            template: 'oddoneout',
-            instruction: 'Артық затты тап: Бір ғана пішіні басқа!',
+            template: 'visualmath',
+            instruction: '🍓 Жидектерді қос!',
             content: {
-                items: [
-                    { content: '🔴', isOdd: false },
-                    { content: '🟠', isOdd: false },
-                    { content: '🟡', isOdd: false },
-                    { content: '🔺', isOdd: true },
-                    { content: '🔴', isOdd: false },
-                    { content: '🟤', isOdd: false }
-                ]
+                emoji: '🍓',
+                operand1: 4, operator: '+', operand2: 3,
+                answer: 7, options: [6, 7, 8],
+                story: 'Бір тақтайшада 4 жидек, екіншісінде 3 жидек. Барлығы нешеу?'
             }
         }
     ],
@@ -453,211 +436,220 @@ const TASKS = {
     ],
     'math_add_sub': [
         {
-            id: 'math_as_vm_01',
-            template: 'visualmath',
-            instruction: '🍎 Алмаларды қос!',
+            id: 'math_as_bd_01',
+            template: 'basketdrag',
+            instruction: '🧺 Алмаларды корзинаға сал!',
             content: {
                 emoji: '🍎',
                 operand1: 3, operator: '+', operand2: 4,
                 answer: 7, options: [6, 7, 8],
-                story: 'Себетте 3 алма бар еді. Тағы 4 алма қосты. Барлығы нешеу?'
+                story: 'Себетте 3 алма бар. Тағы 4 алма қосты. Корзинаға салып, барлығын сана!'
             }
         },
         {
-            id: 'math_as_vm_02',
-            template: 'visualmath',
-            instruction: '🍌 Банандарды азайт!',
+            id: 'math_as_bd_02',
+            template: 'basketdrag',
+            instruction: '🧺 Банандарды жи!',
             content: {
                 emoji: '🍌',
-                operand1: 7, operator: '-', operand2: 3,
-                answer: 4, options: [3, 4, 5],
-                story: 'Маймылда 7 банан болды. 3-еуін жеді. Нешеуі қалды?'
+                operand1: 5, operator: '+', operand2: 3,
+                answer: 8, options: [7, 8, 9],
+                story: 'Маймыл 5 банан, тағы 3 банан тапты. Корзинаға жинап, санашы!'
             }
         },
         {
-            id: 'math_as_vm_03',
-            template: 'visualmath',
-            instruction: '⭐ Жұлдыздар жинала!',
+            id: 'math_as_bd_03',
+            template: 'basketdrag',
+            instruction: '🧺 Жұлдыздарды жинала!',
             content: {
                 emoji: '⭐',
-                operand1: 5, operator: '+', operand2: 6,
-                answer: 11, options: [10, 11, 12],
-                story: 'Аспанда 5 жұлдыз болды, тағы 6 жұлдыз шықты. Барлығы неше?'
+                operand1: 6, operator: '+', operand2: 4,
+                answer: 10, options: [9, 10, 11],
+                story: 'Аспаннан 6 жұлдыз түсті, тағы 4 жұлдыз шықты. Барлығы санашы!'
             }
         }
     ],
     'math_compare': [
         {
-            id: 'math_cmp_vm_01',
-            template: 'visualmath',
-            instruction: '🐟 Балықтарды салыстыр!',
+            id: 'math_cmp_sc_01',
+            template: 'livescales',
+            instruction: '⚖️ Таразыда салыстыр!',
             content: {
-                emoji: '🐟',
-                operand1: 4, operator: '+', operand2: 2,
-                answer: 6, options: [5, 6, 7],
-                story: '4 + 2 = ? Ауладағы балықтарды санап шық!'
+                leftEmoji: '🍎', leftCount: 7,
+                rightEmoji: '🍊', rightCount: 4,
+                answer: '>',
+                story: 'Таразының сол жағында 7 алма, оң жағында 4 апельсин. Қайсысы ауыр?'
             }
         },
         {
-            id: 'math_cmp_vm_02',
-            template: 'visualmath',
-            instruction: '🎈 Шарлар неше?',
+            id: 'math_cmp_sc_02',
+            template: 'livescales',
+            instruction: '⚖️ Санды салыстыр!',
             content: {
-                emoji: '🎈',
-                operand1: 8, operator: '-', operand2: 3,
-                answer: 5, options: [4, 5, 6],
-                story: 'Мерекеде 8 шар бар еді. Желмен 3-еуі ұшып кетті. Нешеуі қалды?'
+                leftEmoji: '🐟', leftCount: 3,
+                rightEmoji: '🐟', rightCount: 8,
+                answer: '<',
+                story: 'Сол жақта 3 балық, оң жақта 8 балық бар. Қайсы жағы кіші?'
             }
         },
         {
-            id: 'math_cmp_vm_03',
-            template: 'visualmath',
-            instruction: '🌸 Гүлдерді есте!',
+            id: 'math_cmp_sc_03',
+            template: 'livescales',
+            instruction: '⚖️ Тең бе, жоқ па?',
             content: {
-                emoji: '🌸',
-                operand1: 6, operator: '+', operand2: 3,
-                answer: 9, options: [8, 9, 10],
-                story: 'Бақшада 6 гүл өсті. Тағы 3 гүл отырғызды. Барлығы нешеу?'
+                leftEmoji: '🌸', leftCount: 5,
+                rightEmoji: '🌸', rightCount: 5,
+                answer: '=',
+                story: 'Екі жақта да 5-тен гүл бар. Таразы тең бе?'
             }
         }
     ],
     'math_missing': [
         {
-            id: 'math_miss_vm_01',
-            template: 'visualmath',
-            instruction: '🦋 Көбелектер нешеу?',
+            id: 'math_miss_tn_01',
+            template: 'trainnumbers',
+            instruction: '🚂 Поездда қай сан жоқ?',
             content: {
-                emoji: '🦋',
-                operand1: 2, operator: '+', operand2: 5,
-                answer: 7, options: [6, 7, 8],
-                story: 'Бір гүлде 2, екінші гүлде 5 көбелек. Барлығы нешеу?'
+                sequence: [3, null, 5, 6, 7],
+                answer: 4,
+                options: [2, 4, 8],
+                story: 'Сандар поезы жүреді: 3, ?, 5, 6, 7. Бос вагонды тол!'
             }
         },
         {
-            id: 'math_miss_vm_02',
-            template: 'visualmath',
-            instruction: '🍬 Кәмпиттерді бөл!',
+            id: 'math_miss_tn_02',
+            template: 'trainnumbers',
+            instruction: '🚂 Ондықтар поезды!',
             content: {
-                emoji: '🍬',
-                operand1: 9, operator: '-', operand2: 4,
-                answer: 5, options: [4, 5, 6],
-                story: 'Алида 9 кәмпит болды. Досына 4-еуін берді. Нешеуі қалды?'
+                sequence: [10, 20, 30, null, 50],
+                answer: 40,
+                options: [35, 40, 45],
+                story: 'Ондықтар: 10, 20, 30, ?, 50. Жетіспеген ондықты тап!'
             }
         },
         {
-            id: 'math_miss_vm_03',
-            template: 'visualmath',
-            instruction: '🚀 Зымырандар ұша!',
+            id: 'math_miss_tn_03',
+            template: 'trainnumbers',
+            instruction: '🚂 Кері санау поезды!',
             content: {
-                emoji: '🚀',
-                operand1: 4, operator: '+', operand2: 4,
-                answer: 8, options: [7, 8, 9],
-                story: '4 зымыран ұшып кетті, тағы 4-еуі ұшты. Барлығы нешеуі?'
+                sequence: [9, 8, null, 6, 5],
+                answer: 7,
+                options: [4, 7, 10],
+                story: 'Поезд кері санайды: 9, 8, ?, 6, 5. Жоқ санды тап!'
             }
         }
     ],
     'math_multiply': [
         {
-            id: 'math_mult_vm_01',
-            template: 'visualmath',
-            instruction: '🍓 Жидектерді топта!',
+            id: 'math_mult_ne_01',
+            template: 'nesteggs',
+            instruction: '🪹 Ұялардағы жұмыртқаларды сана!',
             content: {
-                emoji: '🍓',
-                operand1: 3, operator: '×', operand2: 2,
-                answer: 6, options: [5, 6, 8],
-                story: '3 себетте 2-ден жидек бар. Барлығы нешеу?'
+                nests: 3,
+                eggsPerNest: 2,
+                answer: 6,
+                options: [5, 6, 8],
+                story: '3 ұяда 2-ден жұмыртқа бар. Барлығы нешеу? 3 × 2 = ?'
             }
         },
         {
-            id: 'math_mult_vm_02',
-            template: 'visualmath',
-            instruction: '🐟 Балықтарды сана!',
+            id: 'math_mult_ne_02',
+            template: 'nesteggs',
+            instruction: '🪹 4 ұяда 3-тен жұмыртқа!',
             content: {
-                emoji: '🐟',
-                operand1: 4, operator: '×', operand2: 2,
-                answer: 8, options: [6, 8, 10],
-                story: '4 аквариумда 2-ден балық бар. Барлығы нешеу?'
+                nests: 4,
+                eggsPerNest: 3,
+                answer: 12,
+                options: [9, 12, 16],
+                story: '4 ұяда 3-тен жұмыртқа бар. Барлығы нешеу? 4 × 3 = ?'
             }
         },
         {
-            id: 'math_mult_vm_03',
-            template: 'visualmath',
-            instruction: '🌼 Гүлдердің жапырақтары!',
+            id: 'math_mult_ne_03',
+            template: 'nesteggs',
+            instruction: '🪹 2 ұяда 5-тен жұмыртқа!',
             content: {
-                emoji: '🌼',
-                operand1: 3, operator: '×', operand2: 3,
-                answer: 9, options: [6, 9, 12],
-                story: '3 гүлдің әрқайсысында 3 жапырақ бар. Барлығы нешеу?'
+                nests: 2,
+                eggsPerNest: 5,
+                answer: 10,
+                options: [8, 10, 12],
+                story: '2 ұяда 5-тен жұмыртқа бар. Барлығы нешеу? 2 × 5 = ?'
             }
         }
     ],
     'math_divide': [
         {
-            id: 'math_div_vm_01',
-            template: 'visualmath',
-            instruction: '🍕 Пиццаны бөліс!',
+            id: 'math_div_cd_01',
+            template: 'chocodivide',
+            instruction: '🍕 Пиццаны достарға тең бөл!',
             content: {
-                emoji: '🍕',
-                operand1: 6, operator: '÷', operand2: 2,
-                answer: 3, options: [2, 3, 4],
-                story: '6 пицца кесіндісін 2 балаға тең бөлсе, әрқайсысына нешеу?'
+                total: 6,
+                divideBy: 2,
+                answer: 3,
+                options: [2, 3, 4],
+                itemEmoji: '🍕',
+                story: '6 пицца бар. 2 досыңа тең бөл. Әрқайсысына нешеу тиеді?'
             }
         },
         {
-            id: 'math_div_vm_02',
-            template: 'visualmath',
-            instruction: '🥕 Сәбізді бөліс!',
+            id: 'math_div_cd_02',
+            template: 'chocodivide',
+            instruction: '🥕 Сәбізді қояндарға бөл!',
             content: {
-                emoji: '🥕',
-                operand1: 8, operator: '÷', operand2: 4,
-                answer: 2, options: [1, 2, 3],
-                story: '8 сәбізді 4 қоянға тең бөл. Әр қоянға нешеуі?'
+                total: 8,
+                divideBy: 4,
+                answer: 2,
+                options: [1, 2, 3],
+                itemEmoji: '🥕',
+                story: '8 сәбіз бар. 4 қоянға тең бөл. Әр қоянға нешеуі?'
             }
         },
         {
-            id: 'math_div_vm_03',
-            template: 'visualmath',
-            instruction: '🍩 Пончиктерді бөліс!',
+            id: 'math_div_cd_03',
+            template: 'chocodivide',
+            instruction: '🍩 Пончикті балаларға бөл!',
             content: {
-                emoji: '🍩',
-                operand1: 9, operator: '÷', operand2: 3,
-                answer: 3, options: [2, 3, 4],
-                story: '9 пончикті 3 досыңа тең бөлсе, әрқайсысына нешеу тиеді?'
+                total: 9,
+                divideBy: 3,
+                answer: 3,
+                options: [2, 3, 4],
+                itemEmoji: '🍩',
+                story: '9 пончик бар. 3 балаға тең бөл. Әрқайсысына нешеу тиеді?'
             }
         }
     ],
     'math_word_problems': [
         {
-            id: 'math_wp_vm_01',
-            template: 'visualmath',
-            instruction: '🏀 Допты санашы!',
+            id: 'math_wp_bd_01',
+            template: 'basketdrag',
+            instruction: '🧺 Доптарды жинашы!',
             content: {
                 emoji: '🏀',
                 operand1: 5, operator: '+', operand2: 3,
                 answer: 8, options: [7, 8, 9],
-                story: 'Ерланда 5 доп бар, Айзатта 3 доп. Екеуінде барлығы неше доп?'
+                story: 'Ерланда 5 доп, Айзатта 3 доп. Екі корзинадан жинап, барлығын сана!'
             }
         },
         {
-            id: 'math_wp_vm_02',
-            template: 'visualmath',
-            instruction: '🐣 Тауықтар мен балапандар!',
+            id: 'math_wp_bd_02',
+            template: 'basketdrag',
+            instruction: '🧺 Балапандарды жина!',
             content: {
                 emoji: '🐣',
-                operand1: 7, operator: '-', operand2: 2,
-                answer: 5, options: [4, 5, 6],
-                story: 'Фермада 7 балапан болды. 2-еуі ұшып кетті. Нешеуі қалды?'
+                operand1: 4, operator: '+', operand2: 5,
+                answer: 9, options: [8, 9, 10],
+                story: 'Бір қораяда 4, екінші қораяда 5 балапан. Барлығы корзинаға жина!'
             }
         },
         {
-            id: 'math_wp_vm_03',
-            template: 'visualmath',
-            instruction: '🚌 Автобустағылар!',
+            id: 'math_wp_bd_03',
+            template: 'basketdrag',
+            instruction: '🧺 Гүлдерді жина!',
             content: {
-                emoji: '🧒',
-                operand1: 4, operator: '+', operand2: 6,
+                emoji: '🌸',
+                operand1: 6, operator: '+', operand2: 4,
                 answer: 10, options: [9, 10, 11],
-                story: 'Автобуста 4 бала отырды. Аялдамада тағы 6 бала мінді. Барлығы нешеу?'
+                story: 'Бақшада 6 қызыл, 4 ақ гүл өсті. Корзинаға жинап сана!'
             }
         }
     ],
@@ -676,27 +668,25 @@ const TASKS = {
             }
         },
         {
-            id: 'math_meas_02',
-            template: 'weightlab',
-            instruction: 'Салмақты сезін: Ең ЖЕҢІЛ затты тап және ортаға қой!',
+            id: 'math_meas_sc_01',
+            template: 'livescales',
+            instruction: '⚖️ Қайсысы ауырырақ?',
             content: {
-                objects: [
-                    { id: 'balloon', emoji: '🎈', weight: 1 },
-                    { id: 'car', emoji: '🚗', weight: 10 },
-                    { id: 'cat', emoji: '🐱', weight: 4 }
-                ],
-                targetWeight: 1
+                leftEmoji: '🏋️', leftCount: 10,
+                rightEmoji: '🪶', rightCount: 2,
+                answer: '>',
+                story: 'Таразы: сол жақта 10 кг, оң жақта 2 кг. Қайсысы ауыр?'
             }
         },
         {
-            id: 'math_meas_vm_01',
-            template: 'visualmath',
-            instruction: '📏 Ұзындықты есепте!',
+            id: 'math_meas_sc_02',
+            template: 'livescales',
+            instruction: '⚖️ Сантиметрді салыстыр!',
             content: {
-                emoji: '📏',
-                operand1: 5, operator: '+', operand2: 3,
-                answer: 8, options: [7, 8, 9],
-                story: 'Бір сызғыш 5 см, екіншісі 3 см. Екеуін қоссаң барлығы неше сантиметр?'
+                leftEmoji: '📏', leftCount: 5,
+                rightEmoji: '📏', rightCount: 8,
+                answer: '<',
+                story: 'Сол таяқша 5 см, оң таяқша 8 см. Қайсысы қысқа?'
             }
         }
     ],
@@ -733,52 +723,53 @@ const TASKS = {
             }
         },
         {
-            id: 'geo_vm_01',
-            template: 'visualmath',
-            instruction: '🔺 Фигуралардың бұрыштарын есепте!',
+            id: 'geo_safe_01',
+            template: 'safecode',
+            instruction: '🔐 Геометрия кодын тер!',
             content: {
-                emoji: '🔺',
-                operand1: 3, operator: '+', operand2: 3,
-                answer: 6, options: [5, 6, 7],
-                story: '2 үшбұрышта барлығы неше бұрыш бар? Әр үшбұрышта 3 бұрыш!'
+                equation: '🔺 + 🔷 = ? бұрыш',
+                answer: 7,
+                story: 'Үшбұрышта 3 бұрыш, төртбұрышта 4 бұрыш. Барлығы нешеу?',
+                hint: '3 + 4 = ?'
             }
         }
     ],
     'math_logic': [
         {
-            id: 'math_log_vm_01',
-            template: 'visualmath',
-            instruction: '🍎 Алмалардың мәнін тап!',
+            id: 'math_log_sc_01',
+            template: 'safecode',
+            instruction: '🔐 Сейфтің кодын тап!',
             content: {
-                emoji: '🍎',
-                operand1: 5, operator: '+', operand2: 5,
-                answer: 10, options: [8, 10, 12],
-                story: '🍎 + 🍎 = 10. Демек бір 🍎 = ? Тап!'
+                equation: '🍎 + 🍎 + 🍎 = ?',
+                answer: 15,
+                story: 'Әр 🍎 = 5. 3 алма барлығы: 5 + 5 + 5 = ?',
+                hint: '5 × 3 = ?'
             }
         },
         {
-            id: 'math_log_vm_02',
-            template: 'visualmath',
-            instruction: '🐾 Жануарлар жаттығуы!',
+            id: 'math_log_sc_02',
+            template: 'safecode',
+            instruction: '🔐 Жасырын санды тап!',
             content: {
-                emoji: '🐾',
-                operand1: 4, operator: '×', operand2: 2,
-                answer: 8, options: [6, 8, 10],
-                story: '🐶 📢 4 ит, 🐱 = 2. Бір иттің 2 аяғы. Барлығы неше аяқ?'
+                equation: '? + 4 = 10',
+                answer: 6,
+                story: 'Жасырын санға 4 қосқанда 10 шығады. Жасырын сан қандай?',
+                hint: '10 - 4 = ?'
             }
         },
         {
-            id: 'math_log_vm_03',
-            template: 'visualmath',
-            instruction: '🌟 Жұлдызды есеп!',
+            id: 'math_log_sc_03',
+            template: 'safecode',
+            instruction: '🔐 Кодты шеш де сейфті аш!',
             content: {
-                emoji: '🌟',
-                operand1: 6, operator: '-', operand2: 2,
-                answer: 4, options: [3, 4, 5],
-                story: 'Аспанда 6 жұлдыз бар. Бұлт 2-еуін жасырды. Нешеуі көрінеді?'
+                equation: '🌟 × 🌟 = ? (🌟 = 3)',
+                answer: 9,
+                story: 'Жұлдыздың мәні = 3. Екі жұлдызды көбейт: 3 × 3 = ?',
+                hint: '3 × 3 = ?'
             }
         }
     ],
+
     'attn_visual_memory': [
         {
             id: 'attn_mem_01',

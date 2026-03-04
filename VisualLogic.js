@@ -1,4 +1,4 @@
-class VisualLogicTemplate {
+﻿class VisualLogicTemplate {
     constructor(container, content, onSuccess, onFail) {
         this.container = container;
         this.content = content;

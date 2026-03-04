@@ -760,25 +760,41 @@ body {
         background: rgba(255, 255, 255, 0.2) !important;
     }
 
-    /* Section Headers */
+    /* Section Headers — mobile redesign */
     .section-header {
-        flex-direction: column;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
         gap: 10px;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-
-    .section-title {
-        font-size: 1.5rem !important;
-        color: white !important;
-        /* Белый текст раздела для серого фона */
-        text-align: center;
-        width: 100%;
+        margin-bottom: 16px;
+        margin-top: 22px;
+        padding: 0 4px;
     }
 
     .section-icon {
-        display: none !important;
-        /* Скрываем иконку блока */
+        display: flex !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        border-radius: 12px !important;
+        font-size: 1.5rem !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .section-title {
+        font-size: clamp(1rem, 4.5vw, 1.25rem) !important;
+        font-weight: 900 !important;
+        color: #1e293b !important;
+        text-align: left !important;
+        width: auto !important;
+        flex: 1;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+        text-shadow: none !important;
+        padding: 8px 14px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     }
 
     /* Mascot Mobile — компактная горизонтальная полоса СВЕРХУ */
@@ -994,10 +1010,13 @@ button:active,
     }
 
     .section-title {
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
+        color: #1e293b !important;
         text-align: left !important;
         letter-spacing: 0 !important;
+        font-weight: 900 !important;
     }
+
 
     /* === ЭКРАН ИГР === */
     .task-container {
