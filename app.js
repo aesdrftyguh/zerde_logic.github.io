@@ -89,7 +89,11 @@ class App {
         this.soundIcon = document.getElementById('sound-icon');
 
         const updateSoundUI = () => {
-            if (this.soundIcon) this.soundIcon.textContent = SFX.enabled ? '🔊' : '🔇';
+            if (this.soundIcon) {
+                this.soundIcon.innerHTML = SFX.enabled 
+                    ? '<img src="assets/icons/nav_sound_on.png" style="width: 32px; height: 32px; object-fit: contain;">' 
+                    : '<img src="assets/icons/nav_sound_off.png" style="width: 32px; height: 32px; object-fit: contain;">';
+            }
             if (this.soundBtn) this.soundBtn.style.opacity = SFX.enabled ? '1' : '0.6';
         };
         updateSoundUI();
