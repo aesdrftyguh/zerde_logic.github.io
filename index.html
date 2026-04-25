@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kk">
 
 <head>
@@ -19,7 +19,7 @@
     <!-- Preloader -->
     <div id="preloader"
         style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff7ed; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease;">
-        <div style="font-size: 5rem; animation: bounce 1s infinite alternate;">🦊</div>
+        <div style="animation: bounce 1s infinite alternate;"><img src="assets/avatars/fox.png" style="width: 80px; height: 80px; object-fit: contain;"></div>
         <h2 style="color: #f59e0b; margin-top: 20px; font-family: 'Nunito', sans-serif;">Жүктелуде...</h2>
     </div>
 
@@ -27,7 +27,7 @@
         <!-- Sidebar -->
         <aside class="sidebar glass-panel">
             <div class="sidebar-logo" id="btn-reset-stats" title="Статистиканы нөлдеу" style="cursor: pointer;">
-                🧠
+                <span id="user-avatar-display">🧠</span>
             </div>
             <nav class="nav-menu">
                 <button id="nav-tasks" class="nav-item active" title="Тапсырмалар">
@@ -52,7 +52,7 @@
             <main id="dashboard" class="view active">
                 <header class="hero-banner">
                     <div class="hero-text">
-                        <h1>Сәлем, Оқушы! 👋</h1>
+                        <h1 id="user-greeting">Сәлем, Оқушы! 👋</h1>
                         <p>Логикалық ойлауды дамытатын тапсырмалар</p>
                     </div>
                     <div class="user-stats-row">
@@ -177,6 +177,23 @@
                 </div>
             </main>
 
+        </div>
+
+        <!-- Welcome Overlay -->
+        <div id="welcome-overlay" class="overlay hidden">
+            <div class="glass-panel victory-card" style="max-width: 500px; padding: 40px; text-align: center; border-radius: 40px;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #f59e0b;">Қош келдіңіз! 👋</h1>
+                <p style="margin-bottom: 20px; color: #64748b; font-size: 1.1rem;">Өз атыңызды жазып, аватар таңдаңыз:</p>
+                <input type="text" id="welcome-name-input" placeholder="Атыңызды енгізіңіз..." style="width: 100%; padding: 15px; border-radius: 15px; border: 2px solid #e2e8f0; font-size: 1.2rem; margin-bottom: 20px; font-family: 'Nunito', sans-serif; text-align: center; outline: none;" maxlength="20">
+                <div class="avatars-grid" id="welcome-avatars" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap;">
+                    <button class="avatar-btn active" data-avatar="assets/avatars/fox.png" style="background: none; border: 3px solid #f59e0b; border-radius: 50%; width: 70px; height: 70px; cursor: pointer; transition: 0.2s; padding: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"><img src="assets/avatars/fox.png" style="width: 100%; height: 100%; object-fit: cover;"></button>
+                    <button class="avatar-btn" data-avatar="assets/avatars/cat.png" style="background: none; border: 3px solid transparent; border-radius: 50%; width: 70px; height: 70px; cursor: pointer; transition: 0.2s; padding: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"><img src="assets/avatars/cat.png" style="width: 100%; height: 100%; object-fit: cover;"></button>
+                    <button class="avatar-btn" data-avatar="assets/avatars/dog.png" style="background: none; border: 3px solid transparent; border-radius: 50%; width: 70px; height: 70px; cursor: pointer; transition: 0.2s; padding: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"><img src="assets/avatars/dog.png" style="width: 100%; height: 100%; object-fit: cover;"></button>
+                    <button class="avatar-btn" data-avatar="assets/avatars/panda.png" style="background: none; border: 3px solid transparent; border-radius: 50%; width: 70px; height: 70px; cursor: pointer; transition: 0.2s; padding: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"><img src="assets/avatars/panda.png" style="width: 100%; height: 100%; object-fit: cover;"></button>
+                    <button class="avatar-btn" data-avatar="assets/avatars/rabbit.png" style="background: none; border: 3px solid transparent; border-radius: 50%; width: 70px; height: 70px; cursor: pointer; transition: 0.2s; padding: 0; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"><img src="assets/avatars/rabbit.png" style="width: 100%; height: 100%; object-fit: cover;"></button>
+                </div>
+                <button id="btn-start-app" class="glass-button primary big-btn" style="width: 100%; font-size: 1.3rem;">Бастау 🚀</button>
+            </div>
         </div>
 
         <!-- Victory Overlay -->
