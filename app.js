@@ -1,4 +1,4 @@
-﻿// Imports removed for file:// compatibility
+// Imports removed for file:// compatibility
 
 class App {
     constructor() {
@@ -15,6 +15,16 @@ class App {
         this.categoryCompleteOverlay = document.getElementById('category-complete-overlay');
         this.backToMenuBtn = document.getElementById('btn-back-to-menu');
         this.resetStatsBtn = document.getElementById('btn-reset-stats');
+
+        this.welcomeOverlay = document.getElementById('welcome-overlay');
+        this.welcomeNameInput = document.getElementById('welcome-name-input');
+        this.btnStartApp = document.getElementById('btn-start-app');
+        this.welcomeAvatars = document.querySelectorAll('.avatar-btn');
+        this.userAvatarDisplay = document.getElementById('user-avatar-display');
+        this.userGreeting = document.getElementById('user-greeting');
+        
+        this.playerName = localStorage.getItem('zerde_playerName') || '';
+        this.playerAvatar = localStorage.getItem('zerde_playerAvatar') || 'assets/avatars/fox.png';
 
         this.taskRunner = new TaskRunner();
 
@@ -58,12 +68,19 @@ class App {
     init() {
         this.renderDashboard();
 
+        this.setupWelcomeScreen();
+
         // Hide preloader seamlessly
         setTimeout(() => {
             const preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.style.opacity = '0';
-                setTimeout(() => preloader.style.display = 'none', 500);
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    this.checkWelcomeScreen();
+                }, 500);
+            } else {
+                this.checkWelcomeScreen();
             }
         }, 800);
 
@@ -130,6 +147,68 @@ class App {
         document.addEventListener('task-fail', () => {
             this.handleTaskFail();
         });
+    }
+
+    checkWelcomeScreen() {
+        if (!this.playerName) {
+            if (this.welcomeOverlay) this.welcomeOverlay.classList.remove('hidden');
+        } else {
+            this.updatePlayerProfile();
+        }
+    }
+
+    setupWelcomeScreen() {
+        if (!this.welcomeAvatars) return;
+        
+        let selectedAvatar = 'assets/avatars/fox.png';
+        
+        this.welcomeAvatars.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.welcomeAvatars.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.borderColor = 'transparent';
+                });
+                btn.classList.add('active');
+                btn.style.borderColor = '#f59e0b';
+                selectedAvatar = btn.getAttribute('data-avatar');
+                if (window.SFX) SFX.playClick();
+            });
+        });
+
+        if (this.btnStartApp) {
+            this.btnStartApp.addEventListener('click', () => {
+                const name = this.welcomeNameInput ? this.welcomeNameInput.value.trim() : '';
+                if (!name) {
+                    alert('Атыңызды жазыңыз!');
+                    return;
+                }
+                
+                this.playerName = name;
+                this.playerAvatar = selectedAvatar;
+                
+                localStorage.setItem('zerde_playerName', this.playerName);
+                localStorage.setItem('zerde_playerAvatar', this.playerAvatar);
+                
+                this.updatePlayerProfile();
+                
+                if (this.welcomeOverlay) this.welcomeOverlay.classList.add('hidden');
+                if (window.SFX) SFX.playWin();
+                if (window.Confetti) Confetti.launch();
+            });
+        }
+    }
+
+    updatePlayerProfile() {
+        if (this.userGreeting) {
+            this.userGreeting.textContent = `Сәлем, ${this.playerName}! 👋`;
+        }
+        if (this.userAvatarDisplay) {
+            if (this.playerAvatar.includes('assets/')) {
+                this.userAvatarDisplay.innerHTML = `<img src="${this.playerAvatar}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 5px;">`;
+            } else {
+                this.userAvatarDisplay.textContent = this.playerAvatar;
+            }
+        }
     }
 
     resetIdleTimer() {
