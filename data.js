@@ -1,19 +1,19 @@
-﻿const SECTIONS = [
+const SECTIONS = [
     {
         id: 'logic',
         title: '1-БӨЛІМ — ЛОГИКА ЖӘНЕ ОЙЛАУ',
         icon: '🧠',
         color: '#8b5cf6', // Violet
         categories: [
-            { id: 'logic_patterns', title: 'Жемістермен есеп', icon: '🍎', stars: 0, total: 3 },
-            { id: 'logic_odd_one', title: 'Артық затты тап', icon: '❌', stars: 0, total: 3 },
-            { id: 'logic_prediction', title: 'Жалғасын тап', icon: '🔮', stars: 0, total: 3 },
-            { id: 'logic_cause_effect', title: 'Себеп-салдар', icon: '⚡', stars: 0, total: 3 },
-            { id: 'logic_spatial', title: 'Кеңістіктік ойлау', icon: '📐', stars: 0, total: 3 },
-            { id: 'logic_classification', title: 'Жіктеу', icon: '📂', stars: 0, total: 3 },
-            { id: 'logic_sequence', title: 'Іс-әрекет реті', icon: '📋', stars: 0, total: 3 },
-            { id: 'logic_visual', title: 'Суретті логика', icon: '🖼️', stars: 0, total: 3 },
-            { id: 'logic_true_false', title: 'Шын немесе жалған', icon: '✅', stars: 0, total: 3 },
+            { id: 'logic_patterns', title: 'Жемістермен есеп', icon: '<img src="assets/icons/icon_logic_patterns.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_odd_one', title: 'Артық затты тап', icon: '<img src="assets/icons/icon_logic_odd_one.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_prediction', title: 'Жалғасын тап', icon: '<img src="assets/icons/icon_logic_prediction.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_cause_effect', title: 'Себеп-салдар', icon: '<img src="assets/icons/icon_logic_cause_effect.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_spatial', title: 'Кеңістіктік ойлау', icon: '<img src="assets/icons/icon_logic_spatial.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_classification', title: 'Жіктеу', icon: '<img src="assets/icons/icon_logic_classification.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_sequence', title: 'Іс-әрекет реті', icon: '<img src="assets/icons/icon_logic_sequence.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_visual', title: 'Суретті логика', icon: '<img src="assets/icons/icon_logic_visual.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'logic_true_false', title: 'Шын немесе жалған', icon: '<img src="assets/icons/icon_logic_true_false.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
         ]
     },
     {
@@ -22,15 +22,15 @@
         icon: '🔢',
         color: '#3b82f6', // Blue
         categories: [
-            { id: 'math_add_sub', title: 'Қосу және азайту', icon: '➕', stars: 0, total: 3 },
-            { id: 'math_compare', title: 'Сандарды салыстыру', icon: '⚖️', stars: 0, total: 3 },
-            { id: 'math_missing', title: 'Түсіп қалған сан', icon: '❓', stars: 0, total: 3 },
-            { id: 'math_multiply', title: 'Көбейту', icon: '✖️', stars: 0, total: 3 },
-            { id: 'math_divide', title: 'Бөлу', icon: '➗', stars: 0, total: 3 },
-            { id: 'math_word_problems', title: 'Мәтіндік есептер', icon: '📝', stars: 0, total: 3 },
-            { id: 'math_measurements', title: 'Шамалармен жұмыс', icon: '📏', stars: 0, total: 3 },
-            { id: 'math_geometry', title: 'Геометрия', icon: '🔺', stars: 0, total: 3 },
-            { id: 'math_logic', title: 'Математикалық логика', icon: '📊', stars: 0, total: 3 },
+            { id: 'math_add_sub', title: 'Қосу және азайту', icon: '<img src="assets/icons/icon_math_add_sub.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_compare', title: 'Сандарды салыстыру', icon: '<img src="assets/icons/icon_math_compare.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_missing', title: 'Түсіп қалған сан', icon: '<img src="assets/icons/icon_math_missing.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_multiply', title: 'Көбейту', icon: '<img src="assets/icons/icon_math_multiply.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_divide', title: 'Бөлу', icon: '<img src="assets/icons/icon_math_divide.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_word_problems', title: 'Мәтіндік есептер', icon: '<img src="assets/icons/icon_math_word_problems.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_measurements', title: 'Шамалармен жұмыс', icon: '<img src="assets/icons/icon_math_measurements.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_geometry', title: 'Геометрия', icon: '<img src="assets/icons/icon_math_geometry.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'math_logic', title: 'Математикалық логика', icon: '<img src="assets/icons/icon_math_logic.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
         ]
     },
     {
@@ -39,15 +39,15 @@
         icon: '👀',
         color: '#eab308', // Yellow/Gold
         categories: [
-            { id: 'attn_diff', title: 'Айырмашылықты тап', icon: '🔍', stars: 0, total: 3 },
-            { id: 'attn_memory_repeat', title: 'Есте сақта және қайтала', icon: '🧠', stars: 0, total: 3 },
-            { id: 'attn_missing', title: 'Не жоғалды?', icon: '👻', stars: 0, total: 3 },
-            { id: 'attn_condition', title: 'Шарт бойынша тап', icon: '🎯', stars: 0, total: 3 },
-            { id: 'attn_patterns', title: 'Визуалды өрнектер', icon: '🧩', stars: 0, total: 3 },
-            { id: 'attn_concentration', title: 'Зейін қою', icon: '🧘', stars: 0, total: 3 },
-            { id: 'attn_visual_memory', title: 'Көру жады', icon: '👁️', stars: 0, total: 3 },
-            { id: 'attn_maze', title: 'Лабиринттер', icon: '🌀', stars: 0, total: 3 },
-            { id: 'attn_count', title: 'Зейінді санау', icon: '⏱️', stars: 0, total: 3 },
+            { id: 'attn_diff', title: 'Айырмашылықты тап', icon: '<img src="assets/icons/icon_attn_diff.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_memory_repeat', title: 'Есте сақта және қайтала', icon: '<img src="assets/icons/icon_attn_memory_repeat.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_missing', title: 'Не жоғалды?', icon: '<img src="assets/icons/icon_attn_missing.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_condition', title: 'Шарт бойынша тап', icon: '<img src="assets/icons/icon_attn_condition.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_patterns', title: 'Визуалды өрнектер', icon: '<img src="assets/icons/icon_attn_patterns.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_concentration', title: 'Зейін қою', icon: '<img src="assets/icons/icon_attn_concentration.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_visual_memory', title: 'Көру жады', icon: '<img src="assets/icons/icon_attn_visual_memory.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_maze', title: 'Лабиринттер', icon: '<img src="assets/icons/icon_attn_maze.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
+            { id: 'attn_count', title: 'Зейінді санау', icon: '<img src="assets/icons/icon_attn_count.png" style="width: 64px; height: 64px; object-fit: contain;">', stars: 0, total: 3 },
         ]
     }
 ];
@@ -969,17 +969,13 @@ const TASKS = {
         }
     ],
     'attn_memory_repeat': [
-        // 1. Shadows - Match object to shadow
+        // 1. Memory Cards — жұптарды есте сақта
         {
             id: 'mem_01',
-            template: 'matching',
-            instruction: 'Көлеңкесін тап: Кімнің көлеңкесі?',
+            template: 'memorycards',
+            instruction: '🧠 Карточкаларды аудар, жұптарды тап! Есіңде сақта!',
             content: {
-                pairs: [
-                    { id: 'p1', left: { content: '🐰' }, right: { content: '👤' } },
-                    { id: 'p2', left: { content: '🌵' }, right: { content: '⬛' } },
-                    { id: 'p3', left: { content: '✈️' }, right: { content: '➕' } }
-                ]
+                pairs: ['🐶', '🐱', '🐰', '🦊']
             }
         },
         // 2. Emotion Match - Match face to feeling
