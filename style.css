@@ -86,6 +86,13 @@ body {
     transform: scale(0.9);
 }
 
+.nav-item .icon img {
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    display: block;
+}
+
 /* Main Content Layout */
 .main-content {
     flex: 1;
